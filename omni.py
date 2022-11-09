@@ -65,7 +65,15 @@ async def apiPostAudio(phone:str,file:UploadFile=File(...)):
 
     return {'Success':response['success'], 'sms':response['sms'], 'phone':response['phone'], 'file':file.filename}
 
+import nest_asyncio
+from pyngrok import ngrok
+import uvicorn
+
 if __name__=='__main__':
     port = os.getenv('PORT',default=8000)
+    ngrok.set_auth_token("2HIrmgip5iGrS7owPKTdHiioqOl_81Qqfm3F5fwZ532nyxw1n")
+    ngrok_tunnel = ngrok.connect(8000)
+    print('Public URL:', ngrok_tunnel.public_url)
+    nest_asyncio.apply()
     app_str = 'omni:app'
     uvicorn.run(app_str, host='0.0.0.0', port=int(port) or 8000, reload=True)

@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "app.py"]
+CMD ["python", "omni.py"]
 # docker build -t facenet-attendance-system .
 # docker run -it -p 8000:8000 facenet-attendance-system

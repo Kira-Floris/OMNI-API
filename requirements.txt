@@ -1,3 +1,7 @@
 fastapi
 uvicorn
 aiofiles
+jinja2
+python-multipart
+nest_asyncio
+pyngrok
